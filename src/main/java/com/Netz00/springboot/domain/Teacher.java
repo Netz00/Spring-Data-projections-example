@@ -1,6 +1,7 @@
 package com.Netz00.springboot.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
@@ -38,10 +39,15 @@ public class Teacher {
     @ApiModelProperty(notes = "Name of teacher", name = "name", required = true, value = "John")
     private String name;
 
-    @JsonIgnore
+    // -------------- RELATIONSHIPS --------------
+
+    @JsonIgnoreProperties(value = {"enrolledStudents","teacher"})
     @OneToMany(mappedBy = "teacher")
     @ApiModelProperty(notes = "Teacher subjects", name = "subjects", required = false, value = "{subject1, subject2, subject3}")
     Set<Subject> subjects = new HashSet<>();
+
+    // -------------------------------------------
+
 
     public Teacher() {
     }

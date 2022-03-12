@@ -44,7 +44,9 @@ public class Subject {
     )
     private int ECTS;
 
+    // -------------- RELATIONSHIPS --------------
 
+    @JsonIgnoreProperties(value = {"subjects"})
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "teacher_id",
@@ -52,16 +54,18 @@ public class Subject {
     )
     private Teacher teacher;
 
-
     //@JsonIgnore
-    @JsonIgnoreProperties("subjects")
+    @JsonIgnoreProperties(value = {"subjects"})
     @ManyToMany
     @JoinTable(
             name = "student_enrolled",
-            joinColumns = @JoinColumn(name = "subject_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id")
+            joinColumns = @JoinColumn(name = "subject_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id")
     )
     private Set<Student> enrolledStudents = new HashSet<>();
+
+    // -------------------------------------------
+
 
     public Subject() {
     }

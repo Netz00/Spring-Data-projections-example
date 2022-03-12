@@ -1,16 +1,17 @@
-# Simple Spring web application
+# Simple Spring Boot application
 
-Tech stack combined:
+This application demonstrates usage of:
+- JHipster "best practices"
+  - yaml configuration
+  - file structure
+  - JPA relationships...
 
-
-- Using DTO
-- Swagger
-- Spring security
-- yaml configuration
-- Spring data JPA
-  - ManyToMany
-  - http://bartoszkomin.blogspot.com/2017/01/many-to-many-relation-with-hibernate.html
+- Spring MVC
+- Spring Security
+- Spring Data JPA
+  
 - H2
   - embedded
 - PostgreSQL
-  - Docker
+  - Docker image
+- Swagger

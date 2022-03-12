@@ -61,11 +61,16 @@ public class Student {
     @ApiModelProperty(notes = "Age of student", name = "age", required = false, value = "15")
     private Integer age;
 
+    // -------------- RELATIONSHIPS --------------
+
     //@JsonIgnore
-    @JsonIgnoreProperties("enrolledStudents")
+    @JsonIgnoreProperties(value = {"enrolledStudents","teacher"})
     @ManyToMany(mappedBy = "enrolledStudents")
     @ApiModelProperty(notes = "Student subjects", name = "subjects", required = false, value = "{subject1, subject2, subject3}")
     private Set<Subject> subjects = new HashSet<>();
+
+
+    // -------------------------------------------
 
 
     public Student() {
