@@ -1,6 +1,7 @@
 package com.Netz00.springboot.repository;
 
 import com.Netz00.springboot.domain.Subject;
+import com.Netz00.springboot.repository.DTOprojection.SubjectMin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -8,6 +9,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -26,6 +28,9 @@ public interface SubjectRepository extends JpaRepository<Subject, Long> {
     @Query("select s from Subject s inner join s.enrolledStudents enrolledStudents where enrolledStudents.id = :id")
     @Nullable
     Set<Subject> findAllStudentSubjects(@Param("id") @NonNull Long id);
+
+    @Query("SELECT s FROM Subject s")
+    List<SubjectMin> getAll();
 
 
 }

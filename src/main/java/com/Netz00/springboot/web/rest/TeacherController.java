@@ -1,6 +1,7 @@
 package com.Netz00.springboot.web.rest;
 
 import com.Netz00.springboot.domain.Teacher;
+import com.Netz00.springboot.repository.DTOprojection.TeacherMin;
 import com.Netz00.springboot.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +27,7 @@ public class TeacherController {
 
     @GetMapping
     @ApiOperation(value = "Get all teachers", response = Iterable.class)
-    public List<Teacher> getTeachers() {
+    public List<TeacherMin> getTeachers() {
         return teacherService.getTeachers();
     }
 

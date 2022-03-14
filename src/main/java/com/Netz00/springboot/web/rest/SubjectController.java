@@ -1,6 +1,7 @@
 package com.Netz00.springboot.web.rest;
 
 import com.Netz00.springboot.domain.Subject;
+import com.Netz00.springboot.repository.DTOprojection.SubjectMin;
 import com.Netz00.springboot.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class SubjectController {
 
 
     @GetMapping
-    public List<Subject> getStudents() {
+    public List<SubjectMin> getStudents() {
         return subjectService.getSubjects();
     }
 

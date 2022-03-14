@@ -31,7 +31,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
+        http.httpBasic().and()
+                .authorizeRequests()
                 .antMatchers("/console/**").hasRole("ADMIN")
                 .antMatchers("/swagger-ui/**").hasRole("ADMIN")
                 .antMatchers("/api/v1/teachers").hasRole("ADMIN")

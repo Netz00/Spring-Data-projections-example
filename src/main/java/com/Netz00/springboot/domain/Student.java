@@ -65,7 +65,7 @@ public class Student {
 
     //@JsonIgnore
     @JsonIgnoreProperties(value = {"enrolledStudents","teacher"})
-    @ManyToMany(mappedBy = "enrolledStudents")
+    @ManyToMany(mappedBy = "enrolledStudents",cascade = CascadeType.REMOVE)
     @ApiModelProperty(notes = "Student subjects", name = "subjects", required = false, value = "{subject1, subject2, subject3}")
     private Set<Subject> subjects = new HashSet<>();
 

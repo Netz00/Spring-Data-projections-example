@@ -15,3 +15,15 @@ This application demonstrates usage of:
 - PostgreSQL
   - Docker image
 - Swagger
+
+---
+Problem: \
+"I want fetch only student entities and no relationships while fetching ALL students, \
+but while fetching single student I want to fetch Student relationships too(Subjects)"
+
+Solutions:
+- Projections:
+  - in order to optimise queries there are "lightweight" projections of domain objects
+- Another approach:
+  - static fetch = FetchType.LAZY is unable to achieve this dynamic behaviour at runtime, \
+   but in combination with @EntityGraph(attributePaths = "...") it can be done

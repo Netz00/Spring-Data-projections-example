@@ -1,6 +1,7 @@
 package com.Netz00.springboot.service;
 
 import com.Netz00.springboot.domain.Student;
+import com.Netz00.springboot.repository.DTOprojection.StudentMin;
 import com.Netz00.springboot.repository.StudentRepository;
 import com.Netz00.springboot.repository.SubjectRepository;
 import com.Netz00.springboot.service.exception.EmailAlreadyUsedException;
@@ -25,8 +26,8 @@ public class StudentService {
     }
 
 
-    public List<Student> getStudents() {
-        return studentRepository.findAll();
+    public List<StudentMin> getStudents() {
+        return studentRepository.getAll();
     }
 
     public Student addNewStudent(Student student) {
@@ -64,10 +65,8 @@ public class StudentService {
     }
 
     public Student getStudent(Long studentId) {
-        Student student = studentRepository.findById(studentId)
+        return studentRepository.findById(studentId)
                 .orElseThrow(() -> new UserDoesNotExistsException(studentId));
-        
-        return student;
     }
 
 

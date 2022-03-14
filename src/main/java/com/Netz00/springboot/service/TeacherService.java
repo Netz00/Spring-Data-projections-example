@@ -2,6 +2,7 @@ package com.Netz00.springboot.service;
 
 import com.Netz00.springboot.repository.TeacherRepository;
 import com.Netz00.springboot.domain.Teacher;
+import com.Netz00.springboot.repository.DTOprojection.TeacherMin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,8 @@ public class TeacherService {
         this.teacherRepository = teacherRepository;
     }
 
-    public List<Teacher> getTeachers() {
-        return teacherRepository.findAll();
+    public List<TeacherMin> getTeachers() {
+        return teacherRepository.getAll();
     }
 
     public Teacher createTeacher(Teacher teacher) {

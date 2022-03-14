@@ -4,6 +4,7 @@ import com.Netz00.springboot.domain.Student;
 import com.Netz00.springboot.domain.Subject;
 import com.Netz00.springboot.repository.StudentRepository;
 import com.Netz00.springboot.repository.TeacherRepository;
+import com.Netz00.springboot.repository.DTOprojection.SubjectMin;
 import com.Netz00.springboot.service.exception.UserDoesNotExistsException;
 import com.Netz00.springboot.domain.Teacher;
 import com.Netz00.springboot.repository.SubjectRepository;
@@ -26,8 +27,8 @@ public class SubjectService {
         this.teacherRepository = teacherRepository;
     }
 
-    public List<Subject> getSubjects() {
-        return subjectRepository.findAll();
+    public List<SubjectMin> getSubjects() {
+        return subjectRepository.getAll();
     }
 
     public Subject createSubject(Subject subject) {

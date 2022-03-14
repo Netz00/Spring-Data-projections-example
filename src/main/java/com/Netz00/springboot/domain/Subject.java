@@ -47,7 +47,7 @@ public class Subject {
     // -------------- RELATIONSHIPS --------------
 
     @JsonIgnoreProperties(value = {"subjects"})
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
             name = "teacher_id",
             referencedColumnName = "id"
